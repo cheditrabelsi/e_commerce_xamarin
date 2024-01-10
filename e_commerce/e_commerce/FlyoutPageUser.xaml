@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:e_commerce"
+             x:Class="e_commerce.FlyoutPageUser"
+             Title="flyout">
+    <ListView x:Name="listviewUser" x:FieldModifier="public">
+        <ListView.ItemsSource>
+            <x:Array Type="{x:Type local:FlayoutPageItem}">
+                <local:FlayoutPageItem Title="home" IconSource="home.png"  TargetPage="{x:Type local:HomeUser}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="login" IconSource="logout.png"  TargetPage="{x:Type local:View.login}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="signUp" IconSource="logout.png"  TargetPage="{x:Type local:View.SignUp}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="Panier" IconSource="logout.png"  TargetPage="{x:Type local:View.ligneCommande}"></local:FlayoutPageItem>
+            </x:Array>
+        </ListView.ItemsSource>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding IconSource}"/>
+                        <Label Grid.Column="1" Text="{Binding Title}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

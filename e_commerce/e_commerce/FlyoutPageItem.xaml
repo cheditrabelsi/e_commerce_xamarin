@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:e_commerce"
+             Title="flyout menu"
+             x:Class="e_commerce.FlyoutPageItem">
+    <ListView x:Name="listview" x:FieldModifier="public">
+        <ListView.ItemsSource>
+            <x:Array Type="{x:Type local:FlayoutPageItem}">
+                <local:FlayoutPageItem Title="home" IconSource="home.png"  TargetPage="{x:Type local:homePage}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="add Categorie" IconSource="add.png"  TargetPage="{x:Type local:View.addCategorie}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="add Product" IconSource="add.png"  TargetPage="{x:Type local:View.AddProduit}"></local:FlayoutPageItem>
+                <local:FlayoutPageItem Title="All Commande" IconSource="chart.png"  TargetPage="{x:Type local:View.allCommande}"></local:FlayoutPageItem>
+            </x:Array>
+        </ListView.ItemsSource>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding IconSource}"/>
+                        <Label Grid.Column="1" Text="{Binding Title}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

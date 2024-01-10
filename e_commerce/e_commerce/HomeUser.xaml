@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="e_commerce.HomeUser">
+   <ContentPage.ToolbarItems>
+        <ToolbarItem Text="logout" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+      
+        <StackLayout>
+          
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout>
+
+                    <StackLayout>
+                        <StackLayout Margin="0,5,0,5">
+                            <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="Categories"
+                                    TextColor="Black">
+
+                            </Label>
+
+                            <StackLayout
+                                    Margin="0,20,0,20"
+                                    HeightRequest="90"
+                                    Orientation="Horizontal">
+                                <ListView x:Name="myCollectionViewca" ItemsSource="{Binding Categories}" RowHeight="70">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Frame Padding="10" Margin="5" BackgroundColor="#f0f0f0"  HasShadow="True" >
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Text="{Binding Nom}" 
+                               Grid.Column="0"
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               VerticalOptions="Center"
+                                           MinimumWidthRequest="100"
+       MinimumHeightRequest="30"/>
+
+                                                    </Grid>
+                                                </Frame>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Margin="0,10,0,10">
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Best Seeling"
+                                    TextColor="Black">
+
+                    </Label>
+                    <StackLayout Margin="10,5,0,5">
+                        <Label
+                                        FontSize="16"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="See All"
+                                        TextColor="Black">
+
+                        </Label>
+                        
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout HeightRequest="350">
+                    <CollectionView x:Name="myCollectionView" ItemsSource="{Binding Products}">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="0" HorizontalOptions="CenterAndExpand" >
+                                    <StackLayout>
+                                        <Frame
+                                                        CornerRadius="5"
+                                                        HasShadow="False"
+                                                        HorizontalOptions="Center"
+                                                        IsClippedToBounds="True">
+                                            <ImageButton
+                                                Aspect="AspectFit"
+                                                HeightRequest="210"
+                                                Source="{Binding UrlImage}"
+                                                WidthRequest="165"
+                                                x:Name="productImage"
+                                                Clicked="GoToProduct"
+                                                CommandParameter="{Binding Id}"/>
+
+
+                                        </Frame>
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,-10,0,0">
+                                        <Label
+                                                        FontSize="16"
+                                                        HorizontalOptions="Center"
+                                                        Text="{Binding Nom}"
+                                                        TextColor="Black"
+                                                        VerticalOptions="Start">
+
+                                        </Label>
+
+                                        <Label
+                                                        FontSize="16"
+                                                        HorizontalOptions="Center"
+                                                        Text="{Binding Prix}"
+                                                        TextColor="#00C569"
+                                                        VerticalOptions="Start">
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout
+                Margin="0,-5,0,10"
+                HeightRequest="80"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="50,10,50,10"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <ImageButton
+                                    Aspect="AspectFit"
+                                    HeightRequest="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="chart"
+                                    Clicked="GoToLigneDeCommande"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="20" />
+                                
+                            </Frame>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="25,10,25,10" HorizontalOptions="FillAndExpand">
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                HasShadow="False"
+                                HeightRequest="50"
+                                WidthRequest="50">
+                                <Image
+                                    Aspect="AspectFit"
+                                    HeightRequest="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="profile"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="20" />
+                                
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="e_commerce.View.Product">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <!--  Body  -->
+            <StackLayout IsClippedToBounds="True">
+                <Image
+                    x:Name="imageMain"
+                    Aspect="AspectFill"
+                    HeightRequest="200"
+                    Source="" />
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout Margin="15">
+
+                            <StackLayout>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="26"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text=""
+                                    TextColor="Black"
+                                    x:Name="title"
+                                    VerticalTextAlignment="Center">
+
+                                </Label>
+
+                            </StackLayout>
+
+                            <StackLayout Margin="0,15,0,15" Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <Frame
+                                       
+        Padding="0"
+        BorderColor="#EBEBEB"
+        CornerRadius="20"
+        HasShadow="False"
+        HorizontalOptions="FillAndExpand">
+
+
+                                        <StackLayout
+           
+            Orientation="Horizontal"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand" >
+
+                                            <ImageButton
+                Margin="10"
+                Source="plus.png"
+                Clicked="IncreaseQuantityClicked"
+                WidthRequest="32"
+                HeightRequest="32"/>
+
+                                            <Label x:Name="quantityLabel"
+                   Text="1"
+                   FontSize="20"
+                                                   FontFamily="bold"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"/>
+
+                                            <ImageButton
+                Margin="10"
+                Source="minus.png"
+                Clicked="DecreaseQuantityClicked"
+                WidthRequest="32"
+                HeightRequest="32"/>
+                                        </StackLayout>
+
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+                            <StackLayout>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Details"
+                                    TextColor="Black"
+                                    VerticalTextAlignment="Center">
+
+                                </Label>
+                                <Label
+                                    FontSize="14"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text=""
+                                    x:Name="detail"
+                                    TextColor="Black"
+                                    VerticalTextAlignment="Center">
+                                </Label>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <!--  Footer  -->
+            <StackLayout
+                x:Name="footer"
+                Margin="0,-5,0,0"
+                BackgroundColor="White"
+                HeightRequest="80"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand">
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="#F7F7F7"
+                    HeightRequest="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="StartAndExpand" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HasShadow="True"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout
+                        Margin="0,0,0,10"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <StackLayout>
+                            <Label
+                                Margin="30,0,35,0"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                Text="PRICE"
+                                TextColor="#929292"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center">
+
+                            </Label>
+
+                            <Label
+                                Margin="30,0,35,0"
+                                FontSize="18"
+                                HorizontalOptions="Center"
+                                Text=""
+                                x:Name="price"
+                                TextColor="#00C569"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center">
+
+                            </Label>
+
+                        </StackLayout>
+
+
+                        <Frame
+    Margin="0,0,30,0"
+    Padding="0"
+    BackgroundColor="#00C569"
+    CornerRadius="5"
+    HasShadow="False"
+    HorizontalOptions="EndAndExpand"
+    VerticalOptions="CenterAndExpand">
+                            <Button
+        Padding="10,5" 
+                                FontSize="12"
+                                HorizontalOptions="Center"
+        Text="ADD"
+        TextColor="White"
+        BackgroundColor="#00C569"
+        CornerRadius="5"
+        Clicked="Button_Clicked" />
+                        </Frame>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+
+            <!--  header  -->
+            <StackLayout
+                Margin="15"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="StartAndExpand">
+                <Frame
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="45"
+                    HasShadow="False"
+                    HeightRequest="40"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="40">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Margin="0,10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="26"
+                            HorizontalOptions="StartAndExpand"
+                            Text="&#xf141;"
+                            TextColor="Black" />
+
+                    </StackLayout>
+
+                </Frame>
+
+                <StackLayout>
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="White"
+                        CornerRadius="20"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        WidthRequest="40">
+                        <Label
+                            FontFamily="MaterialFontFamily"
+                            FontSize="28"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="&#xf4d2;"
+                            TextColor="Black"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

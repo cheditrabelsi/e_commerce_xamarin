@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="e_commerce.View.AddProduit">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="nom"
+                   x:Name="nomEntry"
+                   />
+            <Entry Placeholder="Description"
+                   x:Name="DescriptionEntry"/>
+            <Entry Placeholder="Prix"
+                   x:Name="prixEntry"/>
+            <Picker x:Name="categoryPicker" Title="Sélectionner une catégorie">
+                
+            </Picker>
+            <Button Text="Choisir une image" Clicked="OnImageButtonClicked" />
+            <Image x:Name="selectedImage" Aspect="AspectFit" />
+
+            <Button Text="save"
+                    Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

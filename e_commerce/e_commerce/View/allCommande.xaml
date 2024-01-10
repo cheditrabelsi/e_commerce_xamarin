@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="e_commerce.View.allCommande">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="commandeview" ItemsSource="{Binding Commandes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding NomClient}" FontAttributes="Bold" />
+                                <StackLayout BindableLayout.ItemsSource="{Binding LignesCommande}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Label Text="{Binding Id}" />
+                                                <!-- Autres détails de la ligne de commande -->
+                                                <Label></Label>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

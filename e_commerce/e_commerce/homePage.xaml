@@ -1,0 +1,78 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="e_commerce.homePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Log out" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Catégories -->
+            <Label Text="Catégories" FontSize="Large" />
+            <ListView x:Name="myCollectionViewca" ItemsSource="{Binding Categories}" RowHeight="70">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="10" Margin="5" BackgroundColor="#f0f0f0"  HasShadow="True" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Nom}" 
+                               Grid.Column="0"
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               VerticalOptions="Center"
+                                           MinimumWidthRequest="100"
+       MinimumHeightRequest="30"/>
+                                    
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="Produits" FontSize="Large"></Label>
+            <CollectionView x:Name="myCollectionView" ItemsSource="{Binding Products}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BackgroundColor="#f0f0f0" HasShadow="True"
+                   CornerRadius="8">
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Nom}" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" />
+
+                                <Image Source="{Binding UrlImage}" 
+                           Aspect="AspectFit"
+                           HeightRequest="120" 
+                           WidthRequest="120"
+                           HorizontalOptions="Center" />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <ImageButton Source="delete.png" 
+                                     BackgroundColor="Transparent" 
+                                     HeightRequest="40" 
+                                     WidthRequest="40" 
+                                     Clicked="deleteProduit"/>
+                                    <ImageButton Source="update.png" 
+                                     BackgroundColor="Transparent" 
+                                     HeightRequest="40" 
+                                     WidthRequest="40" 
+                                     Clicked="UpdateProduit"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
